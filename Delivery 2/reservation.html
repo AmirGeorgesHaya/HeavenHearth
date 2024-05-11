@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Heaven Hearth</title>
+    <meta charset="utf-8">
+    <link href="reservation.css" rel="stylesheet">
+
+</head>
+
+<body>
+        <!-- Header -->
+
+    <header>
+        <h1>Reservations!</h1>
+    </header>
+    <!-- Navigation menu -->
+
+    <nav>
+        <a href="homepage.html">Home</a> &nbsp;
+        <a href="menu.html"> Menu</a> &nbsp;
+        <a href="reservation.html"> Reservation</a> &nbsp;
+        <a href="entertainers.html"> Entertainers</a> &nbsp;
+        <a href="aboutus.html"> About Us</a> &nbsp;
+        <a href="contact.html"> Contact</a> &nbsp;
+    </nav>
+
+
+    <main>
+        <!-- Reservation information section -->
+
+        <div class="container" style="padding-right: 100px;">
+            <section>
+                <h2>Prices</h2>
+                <!-- Table for pricing information -->
+
+                <table border="bold" style="border-collapse: collapse;width:300px; padding-left:50px">
+                    <thead>
+                        <tr style="font-weight: bold;">
+                            <td>Number People</td>
+                            <td>Prices</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1-2 </td>
+                            <td>15$ </td>
+                        </tr>
+
+                        <tr>
+                            <td>3-5 </td>
+                            <td>20$ </td>
+                        </tr>
+
+                        <tr>
+                            <td>6-10 </td>
+                            <td>45$</td>
+                        </tr>
+
+                        <tr>
+                            <td>11+ </td>
+                            <td>65$ </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+                <!-- Table for seat types and pricing -->
+
+                <table border="bold" style="border-collapse: collapse;width:300px; padding-left:50px">
+                    <thead>
+                        <tr style="font-weight: bold;">
+                            <td>Type of seats</td>
+                            <td>Prices</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Chairs </td>
+                            <td>No fee </td>
+                        </tr>
+
+                        <tr>
+                            <td>Benches </td>
+                            <td>15$ </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+                <p>* reservation fees are paid at the end with the<br> receipts</p>
+
+
+            </section>
+                        <!-- Reservation form section -->
+
+            <section>
+                <h2>Make a reservation!</h2>
+                <label>Number of People: </label>
+                <select id="people">
+                    <option value="15">1-2</option>
+                    <option value="20">3-5</option>
+                    <option value="45">6-10</option>
+                    <option value="65">11+</option>
+                </select>
+                <br><br>
+
+                <label>Benches included: </label>
+                <input type="checkbox" id="seats">
+                <br><br>
+
+                <label>Date: </label>
+                <input type="date" id="date" name="date">
+                <br><br>
+                <label>Time: </label>
+                <input type="time" id="time" name="time">
+                <br><br>
+
+                <label>Occasion: </label>
+                <input type="text" id="occasion">
+                <br><br>
+
+                <button onclick="showReceipt(); saveReceiptToFile();" id="makeReservation" disabled>Make reservation</button>
+            </section>
+
+
+        </div>
+                <!-- Reservation receipt section -->
+
+        <h2>Reservation Receipt</h2>
+        <section style="text-align: center;">
+
+            <pre id="receipt"> Make A reservation!</pre>
+
+        </section>
+    </main>
+
+    <footer>
+        Copyright &copy; Heaven Hearth 2024
+
+    </footer>
+
+</body>
+<script>
+    // Get the date and time input elements
+    const dateInput = document.getElementById("date");
+    const timeInput = document.getElementById("time");
+    // Define an array of closed days (0 = Sunday, 1 = Monday, ...)
+    const closedDays = [0]; // Array still includes Monday for the previous conditions
+
+    // Event listener for date input changes
+    dateInput.addEventListener("change", function () {
+        // Get the selected date and day of the week
+        const selectedDate = new Date(dateInput.value);
+        const dayOfWeek = selectedDate.getDay();
+
+        // Disable the time input if it's a closed day
+        if (closedDays.includes(dayOfWeek)) {
+            alert("Reservations are unavailable on Mondays.");
+            timeInput.disabled = true;
+        } else {
+            timeInput.disabled = false;
+        }
+    });
+
+    // Event listener for time input changes
+    timeInput.addEventListener("change", function () {
+        // Get the selected time, date, and day of the week
+        const selectedTime = timeInput.value;
+        const selectedDate = new Date(dateInput.value);
+        const dayOfWeek = selectedDate.getDay();
+        const button = document.getElementById("makeReservation")
+
+        // Check for specific days and validate time range
+        if (dayOfWeek === 1 && (selectedTime < "08:00" || selectedTime > "17:00")) {
+            alert("On Tuesdays, reservation times are only available between 8 AM and 5 PM.");
+            timeInput.value = ""; // Reset the time input
+            button.disabled = true;
+
+        } else if (dayOfWeek === 2 && (selectedTime < "08:00" || selectedTime > "17:00")) {
+            alert("On Tuesdays, reservation times are only available between 8 AM and 5 PM.");
+            timeInput.value = ""; // Reset the time input
+            button.disabled = true;
+
+        } else if (dayOfWeek === 3 && (selectedTime < "08:00" || selectedTime > "22:00")) {
+            alert("On Thursdays, reservation times are only available between 8 AM and 10 PM.");
+            timeInput.value = ""; // Reset the time input
+            button.disabled = true;
+
+        } else if ((dayOfWeek === 4 || dayOfWeek === 5 || dayOfWeek === 6) && (selectedTime < "12:00" )) {
+            alert("On Fridays, Saturdays, and Sundays, reservation times are only available between 12 PM and 12 AM.");
+            timeInput.value = ""; // Reset the time input
+            button.disabled = true;
+
+        } else {
+            button.disabled = false;
+        }
+    });
+
+    // Function to display the reservation receipt
+    function showReceipt() {
+        // Get the selected values
+        var selectedPrice = parseInt(document.getElementById("people").value);
+        var numberOfPeople;
+        if (selectedPrice === 15) {
+            numberOfPeople = "1-2";
+        } else if (selectedPrice === 20) {
+            numberOfPeople = "3-5";
+        } else if (selectedPrice === 45) {
+            numberOfPeople = "6-10";
+        } else {
+            numberOfPeople = "11+";
+        }
+
+        var benchesIncluded = document.getElementById("seats").checked;
+        var date = document.getElementById("date").value;
+        var time = document.getElementById("time").value;
+        var occasion = document.getElementById("occasion").value;
+
+        // Calculate total price
+        var totalPrice = selectedPrice;
+        if (benchesIncluded) {
+            totalPrice += 15; // Additional fee for benches
+        }
+
+        // Construct the receipt content
+        var receiptContent = "Receipt:\n";
+        receiptContent += "Reservation at: " + time + " on " + date + "\n";
+        receiptContent += "For " + numberOfPeople + " people\n";
+        receiptContent += "Benches Included? " + (benchesIncluded ? "Yes" : "No") + "\n";
+        receiptContent += "Occasion: " + occasion + "\n";
+        receiptContent += "Total Price: $" + totalPrice.toFixed(2);
+
+        // Display the receipt
+        document.getElementById("receipt").innerText = receiptContent;
+    }
+
+
+    function saveReceiptToFile() {
+    // Get the selected values
+    var selectedPrice = parseInt(document.getElementById("people").value);
+    var numberOfPeople;
+    if (selectedPrice === 15) {
+        numberOfPeople = "1-2";
+    } else if (selectedPrice === 20) {
+        numberOfPeople = "3-5";
+    } else if (selectedPrice === 45) {
+        numberOfPeople = "6-10";
+    } else {
+        numberOfPeople = "11+";
+    }
+
+    var benchesIncluded = document.getElementById("seats").checked;
+    var date = document.getElementById("date").value;
+    var time = document.getElementById("time").value;
+    var occasion = document.getElementById("occasion").value;
+
+    // Calculate total price
+    var totalPrice = selectedPrice;
+    if (benchesIncluded) {
+        totalPrice += 15; // Additional fee for benches
+    }
+
+    // Construct the receipt object
+    var receiptObject = {
+        "ReservationTime": time,
+        "ReservationDate": date,
+        "NumberOfPeople": numberOfPeople,
+        "BenchesIncluded": benchesIncluded,
+        "Occasion": occasion,
+        "TotalPrice": totalPrice.toFixed(2)
+    };
+
+    var receiptContent = "Receipt:\n";
+        receiptContent += "Reservation at: " + time + " on " + date + "\n";
+        receiptContent += "For " + numberOfPeople + " people\n";
+        receiptContent += "Benches Included? " + (benchesIncluded ? "Yes" : "No") + "\n";
+        receiptContent += "Occasion: " + occasion + "\n";
+        receiptContent += "Total Price: $" + totalPrice.toFixed(2);
+
+
+    // Convert the object to JSON string
+    var receiptJson = JSON.stringify(receiptObject);
+
+// store the json string in local storage as "lastReceipt"
+localStorage.setItem("lastReceipt", receiptJson);
+console.log("Receipt saved:", receiptObject);
+
+
+    // Save the receipt string to a text file
+    var file = new Blob([receiptContent], { type: "text/plain" });
+    var a = document.createElement("a");
+    var url = URL.createObjectURL(file);
+    a.href = url;
+    a.download = "reservation_receipt.txt";
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () {
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+    }, 0);
+}
+
+    
+
+</script>
+
+
+
+</html>

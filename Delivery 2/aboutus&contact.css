@@ -1,0 +1,107 @@
+/* Styles for the header */
+header {
+    margin: none; /* This should be '0' instead of 'none' */
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    color: #0D1E32;
+    width: 100%;
+    height: 100%;
+}
+
+/* Styles for the navigation bar */
+nav {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    background-color: #0D1E32;
+}
+
+/* Styles for the navigation links */
+nav a {
+    color: goldenrod;
+    text-decoration: none;
+}
+
+/* Styles for the navigation links when hovered */
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Styles for the body */
+body {
+    margin: 0;
+    background-color: #F7EBDB;
+    overflow-x: hidden;
+}
+
+/* Styles for a container with a width of 500px */
+#container {
+    width: 430px;
+    margin-left: auto;
+    padding: 25px;
+    margin-right: auto;
+    background-color: #0D1E32;
+    text-align: center;
+    justify-content: center; /* This property has no effect on a non-flex container */
+    color: goldenrod;
+}
+
+/* Styles for a container with a width of 300px */
+#containerContact {
+    display:flex;
+    width: 250px;
+    margin-left: auto;
+    padding: 25px;
+    margin-right: auto;
+    background-color: #0D1E32;
+    color: goldenrod;
+}
+
+/* Styles for headings inside containers */
+#containerContact h2 {
+    text-align: center;
+}
+
+/* Styles for links inside containerContact */
+#containerContact a {
+    color: rgb(209, 203, 203);
+    text-decoration: none;
+}
+
+/* Styles for links inside containerContact when hovered */
+#containerContact a:hover {
+    text-decoration: underline;
+}
+
+/* Styles for spans */
+span {
+    color: rgb(209, 203, 203);
+}
+
+/* Styles for the footer */
+footer {
+    background-color: #0D1E32;
+    color: goldenrod;
+    padding: 15px;
+    text-align: center;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+
+/* Media query for screens with a maximum width of 740px */
+@media only screen and (max-width: 740px) {
+    /* Adjusted styles for the container */
+    #containerContact {
+        display:flex;
+        width: 250px;
+        margin-left: auto;
+        padding: 25px;
+        margin-right: auto;
+        background-color: #0D1E32;
+        color: goldenrod;
+    }
+}
+
+
