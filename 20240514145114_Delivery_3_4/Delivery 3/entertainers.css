@@ -1,0 +1,108 @@
+/* Styles for the header */
+header {
+    margin: none; /* Invalid value, use '0' instead */
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    color: #0D1E32;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+}
+
+/* Styles for the navigation bar */
+nav {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    background-color: #0D1E32;
+}
+
+/* Styles for navigation links */
+nav a {
+    color: goldenrod;
+    text-decoration: none;
+}
+
+/* Styles for navigation links when hovered */
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Styles for the body */
+body {
+    margin: 0; /* Remove default margin */
+    background-color: #F7EBDB;
+    overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+/* Styles for headings */
+h2 {
+    text-align: center;
+    color: #0D1E32;
+}
+
+/* Styles for the entertainer description */
+#entertainerdescription {
+    padding: 25px;
+    background-color: #0D1E32;
+    color: goldenrod;
+    margin-bottom: 15px;
+}
+
+/* Styles for the entertainer section */
+.entertainer {
+    display: flex; /* Use flexbox */
+    color: goldenrod;
+    align-items: center; /* Center vertically */
+}
+
+/* Styles for clearing floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Styles for the footer */
+footer {
+    background-color: #0D1E32;
+    color: goldenrod;
+    padding: 15px;
+    text-align: center;
+    bottom: 0;
+    position: relative;
+    width: 100%;
+}
+
+/* Media query for screens with a maximum width of 740px */
+@media only screen and (max-width: 740px) {
+    /* Adjusted styles for the entertainer section */
+    .entertainer {
+        display: grid;
+        color: goldenrod;
+        align-items: center;
+        justify-content: center; /* Center vertically */
+    }
+
+    /* Adjusted styles for entertainer images */
+    .entertainer img {
+        display:none;
+     }
+}
+
+/* Media query for screens with a maximum width of 500px */
+@media only screen and (max-width: 500px) {
+    /* Adjusted styles for the entertainer section */
+    .entertainer {
+        display: grid;
+        color: goldenrod;
+        align-items: center;
+        justify-content: center;
+        clear: both; /* Clear floats */
+    }
+
+    /* Adjusted styles for entertainer images */
+    .entertainer img {
+       display:none;
+    }
+}

@@ -1,0 +1,192 @@
+/* Styles for the header */
+header {
+    margin: 0px;
+    text-align: center;
+    color: #0D1E32;
+    width: 100%;
+    height: 100%;
+}
+
+/* Styles for the navigation menu */
+.menuNav {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: auto;
+    text-align: left;
+    background-color: #0D1E32;
+    width: 100%;
+}
+.menuNav a {
+    color: goldenrod;
+    text-decoration: none;
+}
+.menuNav a:hover {
+    text-decoration: underline;
+}
+
+/* Styles for the main navigation */
+nav {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    text-align: center;
+    background-color: #0D1E32;
+    width: 100%;
+}
+nav a {
+    color: goldenrod;
+    text-decoration: none;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* General body styles */
+body {
+    margin: 0;
+    background-color: #F7EBDB;
+    overflow-x: hidden;
+}
+
+/* Styles for h2 elements */
+body h2 {
+    margin: none;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    background-color: goldenrod;
+    color: #0D1E32;
+    height: 100%;
+}
+
+/* Container styles */
+.container {
+    display: flex;
+    width: auto;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+}
+
+/* Figcaption styles */
+figcaption {
+    text-align: center;
+    font-style: italic;
+    font-family: Georgia, serif;
+    align-content: center;
+}
+
+/* Figure styles */
+figure {
+    padding: 15px;
+}
+.figure {
+    font-weight: normal; /* Set default font weight */
+    box-shadow: 0 0 40px #0D1E32;
+}
+.figure:hover {
+    font-weight: bold; /* Change font weight to bold when container is hovered over */
+}
+.figureGallery:hover {
+    box-shadow: 0 0 40px #0D1E32;
+}
+
+/* Horizontal container styles */
+.containerH figure {
+    display: inline-block;
+    padding-bottom: 5px;
+}
+.containerH {
+    text-align: center;
+    padding-top: 5px;
+}
+
+/* Section styles */
+section {
+    width: 350px;
+    padding: 50px;
+    font-size: larger;
+}
+
+/* Styles for the drinks container */
+.drinksContainer {
+    width: 100px;
+}
+
+/* Specials section styles */
+#specials {
+    text-align: center;
+    color: #0D1E32;
+}
+
+/* Footer styles */
+footer {
+    background-color: #0D1E32;
+    color: goldenrod;
+    padding: 15px;
+    text-align: center;
+    bottom: 0;
+    position: relative;
+    width: 100%;
+}
+
+/* Media queries for responsive design */
+@media only screen and (max-width: 850px) {
+    section {
+        display: block;
+        font-size: larger;
+    }
+    .containerH img {
+        width: 199px;
+        height: 199px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    section {
+        display: block;
+        width: 350px;
+        padding: 50px;
+        font-size: larger;
+    }
+    .container {
+        display: block;
+        width: auto;
+        justify-content: center; /* Center horizontally */
+        align-items: center;     /* Center vertically */
+    }
+    .containerH img {
+        width: 199px;
+        height: 199px;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    section {
+        display: block;
+        width: 350px;
+        padding: 50px;
+        font-size: larger;
+    }
+    .container {
+        display: block;
+        width: auto;
+        justify-content: center; /* Center horizontally */
+        align-items: center;     /* Center vertically */
+    }
+    .containerH img {
+        width: 199px;
+        height: 199px;
+    }
+    #sparklingWater {
+        width: 325px;
+    }
+    .figureGallery {
+        width: 325px;
+    }
+    figcaption{
+        display:none;
+    }
+    img{
+        display:none;
+    }
+}

@@ -1,0 +1,220 @@
+/* CSS for styling the header */
+header {
+    margin: none;
+    text-align: center;
+    color: #0D1E32;
+    width: 100%;
+    height: 100%;
+}
+
+/* CSS for styling the navigation bar */
+nav {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    background-color: #0D1E32;
+    width: 100%;
+}
+
+/* CSS for styling navigation links */
+nav a {
+    color: goldenrod;
+    text-decoration: none;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* CSS for styling the body */
+body {
+    margin: 0;
+    background-color: #F7EBDB;
+}
+
+/* CSS for centering content in a container */
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CSS for styling the schedule section */
+#schedule {
+    padding-left: 7%;
+    padding-right: 8%;
+}
+
+/* CSS for styling tables */
+table {
+    text-align: center;
+    border-color: rgb(2, 2, 69);
+    padding-top: 50px;
+}
+thead {
+    color: goldenrod;
+    background-color: #0D1E32;
+}
+tbody {
+    color: #0D1E32;
+}
+tbody tr:nth-of-type(odd) {
+    background-color: rgb(161, 116, 19);
+}
+
+/* CSS for styling the footer */
+footer {
+    background-color: #0D1E32;
+    color: goldenrod;
+    padding: 15px;
+    text-align: center;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+@media only screen and (max-width: 1400px) {
+    
+#container{
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+}
+section{
+    text-align: center;
+}
+table{
+    text-align: center;
+    justify-content: center; /* Center horizontally */
+    align-items: center;   
+}
+#schedule{
+    padding-left: 50px;
+    padding-right:50px;
+
+}
+}
+@media only screen and (max-width: 1300px) {
+    
+    #container{
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center;     /* Center vertically */
+    }
+    section{
+        text-align: center;
+    }
+    table{
+        text-align: center;
+        justify-content: center; /* Center horizontally */
+        align-items: center;   
+    }
+    #schedule{
+        padding-left: 40px;
+        padding-right:40px;
+    
+    }
+    }@media only screen and (max-width: 1260px) {
+    
+        #container{
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center;     /* Center vertically */
+        }
+        section{
+            text-align: center;
+        }
+        table{
+            text-align: center;
+            justify-content: center; /* Center horizontally */
+            align-items: center;   
+        }
+        #schedule{
+            padding-left: 0;
+            padding-right:0;
+        
+        }
+        }
+       
+    
+           
+@media only screen and (max-width: 1190px) {
+    
+    #container {
+        display: grid;
+        justify-content: center; /* Center horizontally */
+        align-items: center;     /* Center vertically */
+        width: 100%;             /* Ensure the container takes full width */
+    }
+    
+    section {
+        text-align: center;
+    }
+    
+    table {
+        margin: 0 auto;          /* Center the table horizontally */
+        text-align: center;      /* Center text within the table */
+    }
+    
+    #schedule {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    }
+    @media only screen and (max-width: 600px) {
+    
+        #container {
+            display: grid;
+            justify-content: center; /* Center horizontally */
+            align-items: center;     /* Center vertically */
+            width: 100%;             /* Ensure the container takes full width */
+        }
+        
+        section {
+            text-align: center;
+        }
+        
+        table {
+            margin: 0 auto;          /* Center the table horizontally */
+            text-align: center;      /* Center text within the table */
+        }
+        
+        #schedule {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        #city img{
+            width:450px;
+            height:350px;
+        }
+        }
+        @media only screen and (max-width: 500px) {
+    
+            #container {
+                display: grid;
+                justify-content: center; /* Center horizontally */
+                align-items: center;     /* Center vertically */
+                width: 100%;             /* Ensure the container takes full width */
+            }
+            
+            section {
+                text-align: center;
+            }
+            
+            table {
+                margin: 0 auto;          /* Center the table horizontally */
+                text-align: center;      /* Center text within the table */
+            }
+            
+            #schedule {
+                padding-left: 0;
+                padding-right: 0;
+            }
+            #city img{
+                width:200px;
+                height:200px;
+            }
+            #restaurant img{
+                width:200px;
+                height:200px;
+            }
+            }
